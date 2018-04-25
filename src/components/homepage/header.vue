@@ -117,6 +117,17 @@ export default {
       margin-left: 10px;
       cursor: pointer;
     }
+    &-middle {
+      &-content {
+        display: inline-block;
+        text-align: center;
+        cursor: pointer;
+        border-radius: 2px;
+        width: 86px;
+        height: 100%;
+        background: #fff;
+      }
+    }
     &-right {
       &-content {
         display: inline-block;
