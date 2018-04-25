@@ -2,6 +2,7 @@
   <div class="login">
     <div class="login-content">
       <div class="login-content-form">
+        <h2>注册</h2>
         <el-form :model="form" ref="form"  label-width="80px">
           <el-form-item label="用户名" prop="username" :rules="rules.username">
             <el-input type="text" size="mini" v-model="form.username" placeholder="用户名" @keyup.enter.native="submitForm('form')"></el-input>
@@ -11,6 +12,9 @@
           </el-form-item>
           <el-form-item>
             <el-button type="primary" @click="submitForm('form')">注册</el-button>
+            <router-link to="/login">
+              <el-button plain>已有账号？去登录<i class="el-icon-d-arrow-right"></i></el-button>
+            </router-link>
           </el-form-item>
         </el-form>
       </div>
@@ -102,6 +106,9 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
+    & h2 {
+      color: #565a61
+    }
     &-form {
       position: absolute;
       background: #FFFFFF;

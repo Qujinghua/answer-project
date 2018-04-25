@@ -27,7 +27,7 @@ export default {
   /* color: #2c3e50; */
   /* margin-top: 60px; */
   .content {
-    width: 50%;
+    width: 80%;
     height: 90%;
     box-shadow: 4px 4px 8px rgba(126, 101, 101, 0.8),
                 -4px -4px 8px rgba(155, 130, 130, 0.8);

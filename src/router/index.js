@@ -7,14 +7,14 @@ const router = new Router({
   routes: [
     {
       path: '/',
-      name: 'HelloWorld',
+      name: 'login',
       component(resolve) {
-        require.ensure(['@/components/HelloWorld.vue'], () => {
-          resolve(require('@/components/HelloWorld.vue'))
+        require.ensure(['@/components/login/login.vue'], () => {
+          resolve(require('@/components/login/login.vue'))
         })
       },
       meta: {
-        title: '首页'
+        title: '登录'
       }
     },
     {
@@ -61,6 +61,92 @@ const router = new Router({
           resolve(require('@/components/homepage/index.vue'))
         })
       },
+      children:[
+        {
+          path: 'catalog',
+          component(resolve) {
+            require.ensure(['@/components/homepage/homebody/catalog.vue'], () => {
+              resolve(require('@/components/homepage/homebody/catalog.vue'))
+            })
+          },
+          meta: {
+            requireAuth: true,
+            title: '主目录'
+          }
+        },
+        {
+          path: 'blanks',
+          component(resolve) {
+            require.ensure(['@/components/homepage/homebody/blanks.vue'], () => {
+              resolve(require('@/components/homepage/homebody/blanks.vue'))
+            })
+          },
+          meta: {
+            requireAuth: true,
+            title: '填空题'
+          }
+        },
+        {
+          path: 'choice',
+          component(resolve) {
+            require.ensure(['@/components/homepage/homebody/choice.vue'], () => {
+              resolve(require('@/components/homepage/homebody/choice.vue'))
+            })
+          },
+          meta: {
+            requireAuth: true,
+            title: '选择题'
+          }
+        },
+        {
+          path: 'practice',
+          component(resolve) {
+            require.ensure(['@/components/homepage/homebody/practice.vue'], () => {
+              resolve(require('@/components/homepage/homebody/practice.vue'))
+            })
+          },
+          meta: {
+            requireAuth: true,
+            title: '顺序练习'
+          }
+        },
+        {
+          path: 'exam',
+          component(resolve) {
+            require.ensure(['@/components/homepage/homebody/exam.vue'], () => {
+              resolve(require('@/components/homepage/homebody/exam.vue'))
+            })
+          },
+          meta: {
+            requireAuth: true,
+            title: '模拟考试'
+          }
+        },
+        {
+          path: 'blanksmanage',
+          component(resolve) {
+            require.ensure(['@/components/homepage/homebody/questionmanage/blanksmanage.vue'], () => {
+              resolve(require('@/components/homepage/homebody/questionmanage/blanksmanage.vue'))
+            })
+          },
+          meta: {
+            requireAuth: true,
+            title: '填空题管理'
+          }
+        },
+        {
+          path: 'choicemanage',
+          component(resolve) {
+            require.ensure(['@/components/homepage/homebody/questionmanage/choicemanage.vue'], () => {
+              resolve(require('@/components/homepage/homebody/questionmanage/choicemanage.vue'))
+            })
+          },
+          meta: {
+            requireAuth: true,
+            title: '选择题管理'
+          }
+        },
+      ],
       meta: {
         title: '答题'
       }

@@ -8,7 +8,8 @@ const mutations = {
   },
   [types.LOGOUT]: (state) => {
     sessionStorage.removeItem('username');
-    sessionStorage.removeItem('isSuperAdmin');
+    sessionStorage.removeItem('isSuper');
+    sessionStorage.removeItem('userid');
   },
   [types.USERSESSION]: (state, data) => {
     sessionStorage.setItem('username', data.userSession.username)

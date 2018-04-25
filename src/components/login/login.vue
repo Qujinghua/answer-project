@@ -2,6 +2,7 @@
   <div class="login">
     <div class="login-content">
       <div class="login-content-form">
+        <h2>登录</h2>
         <el-form :model="form" ref="form"  label-width="80px">
           <el-form-item label="用户名" prop="username" :rules="rules.username">
             <el-input type="text" size="mini" v-model="form.username" placeholder="用户名" @keyup.enter.native="submitForm('form')"></el-input>
@@ -11,6 +12,7 @@
           </el-form-item>
           <el-form-item>
             <el-button type="primary" @click="submitForm('form')">登录</el-button>
+            <el-button plain @click="register">没有账号？点击注册<i class="el-icon-d-arrow-right"></i></el-button>
           </el-form-item>
         </el-form>
       </div>
@@ -41,6 +43,9 @@ export default {
     // this.test()
   },
   methods: {
+    register () {
+      this.$router.push('/register')
+    },
     submitForm (form) {
       this.$refs[form].validate((valid) => {
         if (valid) {
@@ -52,7 +57,7 @@ export default {
                 type: 'success'
               })
               this.$store.dispatch({type:'UserSession', userSession:data.data})
-              this.$router.push('/homepage')
+              this.$router.push('/homepage/catalog')
             } else {
               this.$message({
                 message: data.data.message,
@@ -101,17 +106,9 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
-
-    // &-layer {
-    //   position: absolute;
-    //   width: 100%;
-    //   height: 100%;
-      // -webkit-filter: blur(15px);
-      // -moz-filter: blur(15px);
-      // -o-filter: blur(15px);
-      // -ms-filter: blur(15px);
-      // filter: blur(15px);
-    // }
+    & h2 {
+      color: #565a61
+    }
     &-form {
       position: absolute;
       background: #FFFFFF;
